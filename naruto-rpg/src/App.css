@@ -1,8 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./img/pxfuel\ \(2\).jpg');
-  background-size: cover;
 }
 
 .center {
@@ -11,7 +9,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-
+  background-image: url('./img/pxfuel\ \(2\).jpg');
+  background-size: cover;
 }
 
 .login, .linkLogin {
@@ -61,4 +60,37 @@ body {
   margin-top: 5%;
   font-size: 15px;
   text-decoration: none;
+}
+
+/* pagina notfound */
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #151B29;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.notFoundTitle {
+  color: #007bff;
+  font-size: 200%;
+  font-weight: bold;
+  margin-bottom: 0%;
+}
+
+.notFoundText {
+  font-size: 250%;
+}
+
+.backToHomeLink {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.backToHomeLink:hover {
+  text-decoration: underline;
 }
