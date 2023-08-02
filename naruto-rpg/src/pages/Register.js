@@ -2,39 +2,39 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Register() {
   const history = useHistory();
 
-  const [login, setLogin] = useState({
+  const [register, setRegister] = useState({
     name: '',
     password: '',
   });
 
   const handleChange = ({ target: { name, value } }) => {
-    setLogin({
-      ...login,
+    setRegister({
+      ...register,
       [name]: value,
     });
   };
 
   const handleClick = () => {
-    localStorage.setItem('user', JSON.stringify({ name: login.name }));
+    localStorage.setItem('user', JSON.stringify({ name: register.name }));
     history.push('/mainpage');
   };
 
   const MIN_PASSWORD = 5;
   const MIN_NAME = 3;
-  const verify = login.password.length >= MIN_PASSWORD && login.name.length >= MIN_NAME;
+  const verify = register.password.length >= MIN_PASSWORD && register.name.length >= MIN_NAME;
 
   return (
     <div className='center'>
-        <h1 className='login'>Login</h1>
+        <h1 className='login'>Register</h1>
         <input
           type='text'
           placeholder='Nome'
           className='inputLogin'
           name="name"
-          value={ login.name }
+          value={ register.name }
           onChange={ handleChange }
         />
         <input
@@ -42,7 +42,7 @@ function Login() {
           placeholder='Senha'
           className='inputLogin'
           name="password"
-          value={ login.password }
+          value={ register.password }
           onChange={ handleChange }
         />
         <button
@@ -54,9 +54,9 @@ function Login() {
         >
             Enter
         </button>
-        <Link to="/register" className='linkLogin'>Ainda não tem registro?</Link>
+        <Link to="/" className='linkLogin'>Já tem registro?</Link>
     </div>
   )
 }
 
-export default Login
+export default Register
