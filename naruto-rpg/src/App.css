@@ -209,3 +209,16 @@ body {
 .nomeArma {
   text-align: center;
 }
+
+.mainMoney {
+  display: flex;
+}
+
+.iconMoney {
+  font-size: 200%;
+  padding: 3%;
+}
+
+.numMoney {
+  color: #daa520;
+}
