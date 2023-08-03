@@ -1,6 +1,6 @@
 import React from 'react'
 import Luar from '../img/luar.jpeg'
-// import Luana from '../img/luana.jpeg'
+import Luana from '../img/luana.png'
 // import Gabriel from '../img/Gabriel.jpeg'
 // import Nelson from '../img/Nelson.jpeg'
 // import Igor from '../img/Igor.jpeg'
@@ -12,8 +12,8 @@ function Img(props) {
     switch (true) {
       case name === 'Luar':
         return Luar
-      // case name === 'Luana':
-      //   return Luana
+      case name === 'Luana':
+        return Luana
       // case name === 'Gabriel':
       //   return Gabriel
       // case name === 'Nelson':
