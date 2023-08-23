@@ -152,10 +152,6 @@ body {
 .centerBottom {
   display: flex;
   justify-content: center;
-  position: absolute;
-  bottom: 10%;
-  left: 0;
-  right: 0;
 }
 
 .logout {
@@ -168,6 +164,7 @@ body {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   bottom: 20px;
+  margin-top: 10%;
 }
 
 .imgSize {
@@ -221,4 +218,34 @@ body {
 
 .numMoney {
   color: #daa520;
+}
+
+.payButton {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  bottom: 20px;
+  margin-bottom: 4%;
+}
+
+.containerCenter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4%;
+}
+
+.profileMoney {
+  display: flex;
+  margin-bottom: 3%;
+  margin-left: 30%;
+}
+
+.money {
+  color: #daa520;
+  margin-left: 10%;
 }
