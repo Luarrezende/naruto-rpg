@@ -59,7 +59,7 @@ function Profile() {
           className='payButton'
           onClick={ () => handleClick('menos') }
         >
-          Pagar
+          Pay
         </button>
       </div>
 
@@ -68,7 +68,7 @@ function Profile() {
           className='payButton'
           onClick={ () => handleClick('mais') }
         >
-          Receber
+          Receive
         </button>
       </div>
 
