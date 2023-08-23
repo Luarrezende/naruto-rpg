@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import context from '../context/MyContext';
 import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer'
 import Img from '../components/Img'
@@ -6,9 +7,9 @@ import { GrMoney } from 'react-icons/gr';
 
 function Profile() {
   const history = useHistory();
+  const { money, setMoney } = useContext(context);
 
-  const [moneyValue, setMoneyValue] = useState('')
-  const [money, setMoney] = useState(0);
+  const [moneyValue, setMoneyValue] = useState('');
 
   const nameStorage = JSON.parse(localStorage.getItem('user'));
 

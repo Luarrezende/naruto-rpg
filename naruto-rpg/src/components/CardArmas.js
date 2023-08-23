@@ -33,7 +33,7 @@ function CardArmas() {
     <div className='armasContainer'>
       {
         data.armas.map((e, index) => (
-          <div className='armas'>
+          <div className='armas' key={index}>
             <img src={ e.imagem }
               alt={ e.name }
               className='imgSize'

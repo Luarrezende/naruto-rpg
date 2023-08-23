@@ -1,16 +1,18 @@
-import React from 'react'
-import Footer from '../components/Footer'
-import CardArmas from '../components/CardArmas'
+import React, { useContext } from 'react';
+import context from '../context/MyContext';
+import Footer from '../components/Footer';
+import CardArmas from '../components/CardArmas';
 import { GrMoney } from 'react-icons/gr';
 
 
 function MainPage() {
+  const { money } = useContext(context);
   return (
     <div className='background'>
       <h1 className='title'>Main Page</h1>
       <div className='mainMoney'>
         <GrMoney className='iconMoney' />
-        <p className='numMoney'>0</p>
+        <p className='numMoney'>{ money }</p>
       </div>
       <CardArmas />
       <Footer />
