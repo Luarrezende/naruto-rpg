@@ -1,9 +1,9 @@
 import React from 'react'
 import Luar from '../img/luar.jpeg'
 import Luana from '../img/luana.png'
-// import Gabriel from '../img/Gabriel.jpeg'
+import Gabriel from '../img/Gabriel.jpeg'
 import Nelson from '../img/nelson.jpeg'
-// import Igor from '../img/Igor.jpeg'
+import Gabi from '../img/Gabi.jpeg'
 import Default from '../img/default.png'
 
 function Img(props) {
@@ -14,12 +14,12 @@ function Img(props) {
         return Luar
       case name === 'Luana':
         return Luana
-      // case name === 'Gabriel':
-      //   return Gabriel
+      case name === 'Gabriel':
+        return Gabriel
       case name === 'Nelson':
         return Nelson
-      // case name === 'Igor':
-      //   return Igor
+      case name === 'Gabi':
+        return Gabi
       default:
         return Default
     }

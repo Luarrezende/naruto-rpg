@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer'
 import Img from '../components/Img'
 import { GrMoney } from 'react-icons/gr';
+import sendToLoginPage from '../utils/sendToLoginPage';
 
 function Profile() {
   const history = useHistory();
@@ -14,11 +15,12 @@ function Profile() {
   const nameStorage = JSON.parse(localStorage.getItem('user'));
   
   useEffect(() => {
+    sendToLoginPage(history);
     const savedMoney = localStorage.getItem('money');
     if (savedMoney !== null) {
       setMoney(Number(savedMoney));
     }
-  }, [setMoney]);
+  }, [setMoney, history]);
 
   const handleInputChange = (event) => {
     setMoneyValue(event.target.value);
@@ -45,11 +47,17 @@ function Profile() {
 
   return (
     <div className='background'>
-      <div className='imgLocate'>
-        <Img name={ nameStorage.name } />
-      </div>
+      {
+        nameStorage && nameStorage.name !== null ? (
+          <div>
+            <div className='imgLocate'>
+              <Img name={nameStorage.name} />
+            </div>
 
-      <p className='nameProfile'>{ nameStorage.name }</p>
+            <p className='nameProfile'>{nameStorage.name}</p>
+          </div>
+        ) : null
+      }
 
       <div className='profileMoney'>
         <GrMoney className='iconMoney' />

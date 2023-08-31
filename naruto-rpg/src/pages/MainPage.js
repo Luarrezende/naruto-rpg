@@ -3,9 +3,14 @@ import context from '../context/MyContext';
 import Footer from '../components/Footer';
 import CardArmas from '../components/CardArmas';
 import { GrMoney } from 'react-icons/gr';
+import sendToLoginPage from '../utils/sendToLoginPage';
+import { useHistory } from 'react-router-dom';
 
 
 function MainPage() {
+  const history = useHistory();
+  sendToLoginPage(history);
+  
   const { money } = useContext(context);
   return (
     <div className='background'>
