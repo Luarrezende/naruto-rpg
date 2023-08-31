@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import context from '../context/MyContext';
 import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer'
@@ -12,6 +12,13 @@ function Profile() {
   const [moneyValue, setMoneyValue] = useState('');
 
   const nameStorage = JSON.parse(localStorage.getItem('user'));
+  
+  useEffect(() => {
+    const savedMoney = localStorage.getItem('money');
+    if (savedMoney !== null) {
+      setMoney(Number(savedMoney));
+    }
+  }, [setMoney]);
 
   const handleInputChange = (event) => {
     setMoneyValue(event.target.value);
@@ -23,8 +30,13 @@ function Profile() {
     } else {
       setMoney(money - Number(moneyValue))
     }
+
     setMoneyValue('')
   }
+
+  useEffect(() => {
+    localStorage.setItem('money', money);
+  }, [money]);
 
   const logout = () => {
     localStorage.clear();

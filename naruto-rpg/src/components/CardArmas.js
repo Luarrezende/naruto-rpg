@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import context from '../context/MyContext';
 import data from '../data/data.json'
 
 function CardArmas() {
+  const { money, setMoney } = useContext(context);
   const [quantities, setQuantities] = useState(data.armas.map(() => 0));
 
   useEffect(() => {
@@ -10,24 +12,33 @@ function CardArmas() {
       return quantity ? parseInt(quantity, 10) : 0;
     });
 
-    setQuantities(savedQuantities);
-  }, []);
+    const savedMoney = localStorage.getItem('money');
 
-  const handleClick = (index, operacao) => {
+    setMoney(Number(savedMoney))
+    setQuantities(savedQuantities);
+  }, [setMoney]);
+
+  const handleClick = (index, operacao, preco) => {
     setQuantities((prevQuantities) => {
       const newQuantities = [...prevQuantities];
 
       if (operacao === 'mais') {
         newQuantities[index] += 1;
+        setMoney(money - Number(preco.replace(/\D/g, '')));
       } else if (operacao === 'menos' && newQuantities[index] > 0) {
         newQuantities[index] -= 1;
+        setMoney(money + Number(preco.replace(/\D/g, '')) / 2);
       }
-
+      
       localStorage.setItem(data.armas[index].nome, newQuantities[index]);
 
       return newQuantities;
     });
   };
+
+  useEffect(() => {
+    localStorage.setItem('money', money);
+  }, [money]);
 
   return (
     <div className='armasContainer'>
@@ -44,13 +55,13 @@ function CardArmas() {
             <div className='operacao'>
               <button
                 className='operacaoBotao'
-                onClick={ () => handleClick(index, 'mais') }
+                onClick={ () => handleClick(index, 'mais', e.preco) }
               >
                 +
               </button>
               <button
                 className='operacaoBotao'
-                onClick={ () => handleClick(index, 'menos') }
+                onClick={ () => handleClick(index, 'menos', e.preco) }
               >
                 -
               </button>
